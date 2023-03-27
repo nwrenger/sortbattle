@@ -1,5 +1,5 @@
 pub fn nils_quicksort(a: &mut [i32]) {
-    let pivot = if let Some (&pivot) =  a.last() {
+    let pivot = if let Some(&pivot) = a.last() {
         pivot
     } else {
         return;
@@ -17,7 +17,6 @@ pub fn nils_quicksort(a: &mut [i32]) {
     nils_quicksort(lower);
     nils_quicksort(&mut upper[1..]); // ignoring pivot element
 }
-
 
 pub fn anton_quicksort(a: &mut [i32]) {
     if a.is_empty() {
