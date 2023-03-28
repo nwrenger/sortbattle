@@ -1,4 +1,5 @@
 mod algorithms;
+use algorithms::rosetta_quicksort;
 use clap::{Parser, ValueEnum};
 use rand::prelude::*;
 use rand::rngs::SmallRng;
@@ -18,6 +19,7 @@ struct Args {
 enum Implementation {
     Unsorted,
     Rust,
+    Rosetta,
     Nils,
     Anton,
 }
@@ -37,6 +39,10 @@ fn main() {
         }
         Implementation::Rust => {
             unsorted.sort();
+            assert!(is_sorted(&unsorted), "{unsorted:?}");
+        }
+        Implementation::Rosetta => {
+            rosetta_quicksort(&mut unsorted, &|x,y| x < y);
             assert!(is_sorted(&unsorted), "{unsorted:?}");
         }
         Implementation::Nils => {

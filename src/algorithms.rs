@@ -38,11 +38,11 @@ pub fn anton_quicksort(a: &mut [i32]) {
     let mut i = 0;
     let mut j = a.len() - 1;
     loop {
-        while a[i] < pivot.clone() {
+        while a[i] < pivot {
             i += 1;
         }
 
-        while a[j] > pivot.clone() {
+        while a[j] > pivot {
             j -= 1;
         }
 
@@ -54,5 +54,37 @@ pub fn anton_quicksort(a: &mut [i32]) {
     }
 
     anton_quicksort(&mut a[..i]);
-    anton_quicksort(&mut a[j + 1..]);
+    anton_quicksort(&mut a[j + 1..]); //ignore pivot element
+}
+
+pub fn rosetta_quicksort<T,F>(v: &mut [T], f: &F) 
+    where F: Fn(&T,&T) -> bool
+{
+    let len = v.len();
+    if len >= 2 {
+        let pivot_index = partition(v, f);
+        rosetta_quicksort(&mut v[0..pivot_index], f);
+        rosetta_quicksort(&mut v[pivot_index + 1..len], f);
+    }
+}
+
+fn partition<T,F>(v: &mut [T], f: &F) -> usize 
+    where F: Fn(&T,&T) -> bool
+{
+    let len = v.len();
+    let pivot_index = len / 2;
+    let last_index = len - 1;
+
+    v.swap(pivot_index, last_index);
+
+    let mut store_index = 0;
+    for i in 0..last_index {
+        if f(&v[i], &v[last_index]) {
+            v.swap(i, store_index);
+            store_index += 1;
+        }
+    }
+
+    v.swap(store_index, len - 1);
+    store_index
 }
