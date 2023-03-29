@@ -57,8 +57,9 @@ pub fn anton_quicksort(a: &mut [i32]) {
     anton_quicksort(&mut a[j + 1..]); //ignore pivot element
 }
 
-pub fn rosetta_quicksort<T,F>(v: &mut [T], f: &F) 
-    where F: Fn(&T,&T) -> bool
+pub fn rosetta_quicksort<T, F>(v: &mut [T], f: &F)
+where
+    F: Fn(&T, &T) -> bool,
 {
     let len = v.len();
     if len >= 2 {
@@ -68,8 +69,9 @@ pub fn rosetta_quicksort<T,F>(v: &mut [T], f: &F)
     }
 }
 
-fn partition<T,F>(v: &mut [T], f: &F) -> usize 
-    where F: Fn(&T,&T) -> bool
+fn partition<T, F>(v: &mut [T], f: &F) -> usize
+where
+    F: Fn(&T, &T) -> bool,
 {
     let len = v.len();
     let pivot_index = len / 2;

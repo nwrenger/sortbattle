@@ -1,5 +1,4 @@
 mod algorithms;
-use algorithms::rosetta_quicksort;
 use clap::{Parser, ValueEnum};
 use rand::prelude::*;
 use rand::rngs::SmallRng;
@@ -42,7 +41,7 @@ fn main() {
             assert!(is_sorted(&unsorted), "{unsorted:?}");
         }
         Implementation::Rosetta => {
-            rosetta_quicksort(&mut unsorted, &|x,y| x < y);
+            algorithms::rosetta_quicksort(&mut unsorted, &|x, y| x < y);
             assert!(is_sorted(&unsorted), "{unsorted:?}");
         }
         Implementation::Nils => {
