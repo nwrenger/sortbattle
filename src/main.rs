@@ -37,7 +37,7 @@ fn main() {
             println!("Unsorted: {unsorted:?}");
         }
         Implementation::Rust => {
-            unsorted.sort();
+            unsorted.sort_unstable();
             assert!(is_sorted(&unsorted), "{unsorted:?}");
         }
         Implementation::Rosetta => {
