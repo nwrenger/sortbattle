@@ -14,23 +14,23 @@ cargo build -r
 ```
 For my algorithm:
 ```
-hyperfine --warmup 6 -- "target/release/vectest nils -s 69 -l 50000"
+hyperfine --warmup 6 -- "target/release/sortbattle nils -s 69 -l 50000"
 ```
 For my friends algorithm:
 ```
-hyperfine --warmup 6 -- "target/release/vectest anton -s 69 -l 50000"
+hyperfine --warmup 6 -- "target/release/sortbattle anton -s 69 -l 50000"
 ```
 For Rusts algorithm:
 ```
-hyperfine --warmup 6 -- "target/release/vectest rust -s 69 -l 50000"
+hyperfine --warmup 6 -- "target/release/sortbattle rust -s 69 -l 50000"
 ```
 For the algorithm from **[Rosetta Code's Website](https://rosettacode.org/wiki/Sorting_algorithms/Quicksort#Rust)**:
 ```
-hyperfine --warmup 6 -- "target/release/vectest rosetta -s 69 -l 50000"
+hyperfine --warmup 6 -- "target/release/sortbattle rosetta -s 69 -l 50000"
 ```
 For the generated list(print!):
 ```
-hyperfine --warmup 6 --show-output -- "target/release/vectest unsorted -s 69 -l 50000"
+hyperfine --warmup 6 --show-output -- "target/release/sortbattle unsorted -s 69 -l 50000"
 ```
 with -s you can set the seed for the generated list and with -l you can specify the length of the list.
 
