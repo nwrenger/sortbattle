@@ -2,7 +2,7 @@
 A reopsitory with a battle between two quicksort algorithms. One is coded by me and the other one is coded by a good friend of mine. Let's see who wins!
 
 ## Dependencies
-Only hyperfine hast to be installed using cargo, the other dependencies are stated in the Cargo.toml:
+Only hyperfine has to be installed using cargo, the other dependencies are stated in the Cargo.toml:
 ```
 cargo install hyperfine
 ```
