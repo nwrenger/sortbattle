@@ -34,4 +34,6 @@ hyperfine --warmup 6 --show-output -- "target/release/vectest unsorted -s 69 -l 
 ```
 with -s you can set the seed for the generated list and with -l you can specify the length of the list.
 
-You can also comment out line 32 and comment in line 33 in main.rs(then save and recompile) for a presorted list. The terminal arguments for comparing the algorithms(hyperfine) don't change. And who wins?!?! Compare them yourself!
+You can also comment out line 32 and comment in line 33 in main.rs(then save and recompile) for a presorted list. The terminal arguments for comparing the algorithms(hyperfine) don't change. 
+
+And who wins?!?! Compare them yourself!
