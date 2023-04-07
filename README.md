@@ -8,7 +8,7 @@ cargo install hyperfine
 ```
 ## Usage
 
-Make sure to compile the release build of the programm before using the hyperfine command:
+Make sure to Compile the release build of the programm before using the hyperfine command. You only have to Compile the Programm again when you made changes to the code:
 ```
 cargo build -r
 ```
