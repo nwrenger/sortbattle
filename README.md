@@ -6,8 +6,9 @@ Only hyperfine has to be installed using cargo, the other dependencies are state
 ```
 cargo install hyperfine
 ```
-## Usage
+Alternatively hyperfine can also be installed with a package manager e.g. `sudo pacman -Syu hyperfine`.
 
+## Usage
 Make sure to Compile the release build of the programm before using the hyperfine command. You only have to Compile the Programm again when you made changes to the code:
 ```
 cargo build -r
@@ -28,6 +29,16 @@ For the algorithm from **[Rosetta Code's Website](https://rosettacode.org/wiki/S
 ```
 hyperfine --warmup 6 -- "target/release/sortbattle rosetta -s 69 -l 50000"
 ```
+The Makefile should execute all the above commands (if rust is installed)
+```
+make test-all
+```
+The shell script only executes the test cases. The first argument to the script is the seed, the second the length of the
+test array 
+```
+./test-all.sh 69 50000
+```
+
 For the generated list(print!):
 ```
 hyperfine --warmup 6 --show-output -- "target/release/sortbattle unsorted -s 69 -l 50000"
