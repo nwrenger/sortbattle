@@ -38,16 +38,22 @@ pub fn anton_quicksort(a: &mut [i32]) {
     let mut i = 0;
     let mut j = a.len() - 1;
     loop {
+        
         while a[i] < pivot {
             i += 1;
         }
-
+        
         while a[j] > pivot {
             j -= 1;
         }
-
+        
+        
         if i >= j {
             break;
+        }
+        
+        if a[i] == pivot && a[j] == pivot {
+            i += 1;
         }
 
         a.swap(i, j);
