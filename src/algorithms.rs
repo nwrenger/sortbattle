@@ -35,7 +35,7 @@ pub fn anton_quicksort(a: &mut [i32]) {
     }
     let pivot = a[a.len() / 2];
 
-    let mut i: i32 = -1;
+    let mut i: i32 = -1; //ignore possible overflow
     let mut j = a.len();
     loop {
         i += 1;
