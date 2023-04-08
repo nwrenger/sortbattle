@@ -31,7 +31,8 @@ fn main() {
     } = Args::parse();
     let mut unsorted = generate(length, seed);
     // let mut unsorted = vec![seed.try_into().unwrap(); length];
-    // let mut unsorted = (0..length as i32).collect();
+    // let mut unsorted: Vec<i32> = (0..length as i32).collect();
+    // unsorted.append(&mut vec![seed as i32]);
     // let mut unsorted = vec![1, 2, 2, 2, 3, -4, -6, 23, 4, 234, 0];
     match implementation {
         Implementation::Unsorted => {
