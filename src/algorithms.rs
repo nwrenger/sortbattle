@@ -35,29 +35,27 @@ pub fn anton_quicksort(a: &mut [i32]) {
     }
     let pivot = a[a.len() / 2];
 
-    let mut i = 0;
-    let mut j = a.len() - 1;
+    let mut i: i32 = -1;
+    let mut j = a.len();
     loop {
-        while a[i] < pivot {
+        i += 1;
+        while a[i as usize] < pivot {
             i += 1;
         }
 
+        j -= 1;
         while a[j] > pivot {
             j -= 1;
         }
 
-        if i >= j {
+        if i as usize >= j {
             break;
         }
 
-        if a[i] == pivot && a[j] == pivot {
-            i += 1;
-        }
-
-        a.swap(i, j);
+        a.swap(i as usize, j);
     }
 
-    anton_quicksort(&mut a[..i]);
+    anton_quicksort(&mut a[..i as usize]);
     anton_quicksort(&mut a[j + 1..]); //ignore pivot element
 }
 
