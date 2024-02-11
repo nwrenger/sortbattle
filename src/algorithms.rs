@@ -93,6 +93,41 @@ where
     store_index
 }
 
+pub fn aws_quicksort(arr: &mut [i32]) {
+    if arr.len() <= 1 {
+        return;
+    }
+
+    let p = aws_partition(arr);
+    aws_quicksort(&mut arr[..p]);
+    aws_quicksort(&mut arr[p + 1..]);
+}
+
+fn aws_partition(arr: &mut [i32]) -> usize {
+    let pivot = arr[0];
+    let mut i = 1;
+    let mut j = arr.len() - 1;
+
+    loop {
+        while i <= j && arr[i] < pivot {
+            i += 1;
+        }
+
+        while i <= j && arr[j] > pivot {
+            j -= 1;
+        }
+
+        if i >= j {
+            break;
+        }
+
+        arr.swap(i, j);
+    }
+
+    arr.swap(0, j);
+    j
+}
+
 pub fn bubblesort(vec: &mut [i32]) {
     let n = vec.len();
     let mut newn = 1;

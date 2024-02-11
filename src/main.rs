@@ -21,6 +21,7 @@ enum Implementation {
     Rosetta,
     Nils,
     Anton,
+    Aws,
     Bubble,
     Cocktail,
 }
@@ -54,6 +55,10 @@ fn main() {
         }
         Implementation::Anton => {
             algorithms::anton_quicksort(&mut unsorted);
+            assert!(is_sorted(&unsorted), "{unsorted:?}");
+        }
+        Implementation::Aws => {
+            algorithms::aws_quicksort(&mut unsorted);
             assert!(is_sorted(&unsorted), "{unsorted:?}");
         }
         Implementation::Bubble => {
